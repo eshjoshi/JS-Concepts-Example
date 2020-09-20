@@ -1,0 +1,24 @@
+<script>
+//JavaScript is designed on a simple object-based paradigm. An object is a collection of properties, and a property is an association between a name (or key) and a value. A property's value can be a function, in which case the property is known as a method. In addition to objects that are predefined in the browser, you can define your own objects. This chapter describes how to use objects, properties, functions, and methods, and how to create your own objects.
+
+  var a = {
+    name: "eshwar",
+    a:10,
+    b:19,
+    sum: (function(x) {
+      return x;
+  })(this.name)
+  }
+
+  //   var a = {
+  //   name: "eshwar",
+  //   myMethod: function() {
+  //     return "gajanan"
+  // }
+  // }
+
+  console.log(a);
+  console.log(a.myMethod());
+  console.log(a["name"]);
+
+  </script>
