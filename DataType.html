@@ -35,7 +35,66 @@ console.log(typeof demo); //shows undefined
 
 //For example,
 
+
 var demo = null;
 console.log(demo); //shows null
 console.log(typeof demo); //shows object
+
+
+
+//bigInt
+
+// const theBiggestInt = 9007199254740991n
+// console.log(theBiggestInt); 
+const alsoHuge = BigInt(9007199254740991)
+// ↪ 9007199254740991n
+console.log(alsoHuge); 
+const hugeString = BigInt("9007199254740991")
+// ↪ 9007199254740991n
+console.log(hugeString); 
+const hugeHex = BigInt("0x1fffffffffffff")
+// ↪ 9007199254740991n
+console.log(hugeHex); 
+const hugeBin = BigInt("0b11111111111111111111111111111111111111111111111111111")
+console.log(hugeBin); 
+
+
+//symbol---------------------------------------------------------------
+// Here are two symbols with the same description:
+let Sym1 = Symbol("Sym")
+let Sym2 = Symbol("Sym")
+  
+console.log(Sym1 === Sym2) // returns "false"
+// Symbols are guaranteed to be unique.
+// Even if we create many symbols with the same description,
+// they are different values.
+
+
+//Symbols don't "Auto-Convert" to strings
+
+let Sym = Symbol("Sym")
+console.log(Sym)  // TypeError: Cannot convert a Symbol value to a string
+console.log(typeof(Sym))  
+
+//If you really want to show a symbol, we need to call .toString() on it.
+let Sym5 = Symbol("Sym")
+console.log(Sym5.toString())  // Symbol(Sym), now it works
+
+let _Sym = Symbol("Sym");
+
+console.log(_Sym.description); // Sym
+
+console.log(_Sym.hasInstance)
+console.log(_Sym.isConcatSpreadable)
+console.log(_Sym.iterator)
+console.log(_Sym.toPrimitive)
+
+
+class MyArray {  
+  static [Symbol.hasInstance](instance) {
+    return Array.isArray(instance)
+  }
+}
+console.log([] instanceof MyArray);
+
   </script>
