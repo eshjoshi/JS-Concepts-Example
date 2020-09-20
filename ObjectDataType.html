@@ -65,8 +65,75 @@ var c1 = new Car('BMW', 'red');
 
 var empdata = new EmployeeData("gajanan", "1");
 
+empdata.date = "19-oct-1991";
 console.log(empdata);
 
-console.log(c1);;
+console.log(empdata instanceof EmployeeData);  // finding the which class pointing to object
+
+
+console.log(c1);
+
+
+function Car1(model) {
+    Object.defineProperty(this, "model", {
+        writable: true,
+        enumerable: true,
+        configurable: true,  // need to explore
+        value: model
+    }
+    );
+    Object.defineProperty(this,  "data", {
+      writable: true,
+      enumerable: true,
+      configurable: false,
+      value: "eshwar"
+    })
+}
+var myCar = new Car1("Audi A3");
+console.log(myCar);
+
+//Third  Object.create method
+var Car = {
+    model: 'BMW',
+    color: 'red'
+}
+console.log(Car);
+
+var ElectricCar = Object.create(Car);
+console.log(ElectricCar.color = "yellow"); // BMW
+console.log(ElectricCar.model); // BMW
+
+
+
+var ElectricCar1 = Object.create(Car, {
+    type: {
+        value: 'Electric',
+        writable: true,
+        configurable: false,
+        enumerable: true
+    }
+});
+console.log(ElectricCar1); // Electric
+
+
+//forth Class ES6
+class Car5 {
+    constructor(maker, price) {
+        this.maker = maker;
+        this.price = price;
+    }
+    getInfo() {
+        console.log(this.maker + " costs : " + this.price);
+    }
+}
+
+var car1 = new Car5("BMW", 100);
+
+car1.getInfo();
+
+console.log(car1);
+var car2 = new Car5("Audi", 150);
+car2.getInfo();
+console.log(car2)
 
   </script>
