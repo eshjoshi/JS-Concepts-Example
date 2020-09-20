@@ -1,24 +1,72 @@
 <script>
 //JavaScript is designed on a simple object-based paradigm. An object is a collection of properties, and a property is an association between a name (or key) and a value. A property's value can be a function, in which case the property is known as a method. In addition to objects that are predefined in the browser, you can define your own objects. This chapter describes how to use objects, properties, functions, and methods, and how to create your own objects.
 
-  var a = {
-    name: "eshwar",
-    a:10,
-    b:19,
-    sum: (function(x) {
-      return x;
-  })(this.name)
-  }
-
-  //   var a = {
+  // var a = {
   //   name: "eshwar",
-  //   myMethod: function() {
-  //     return "gajanan"
+  //   a:10,
+  //   b:19,
+  //   sum: (function(x) {   // need to check this concept previewFrame
+  //     return x;
+  // })(this.name)
   // }
-  // }
+
+    var a = {
+    name: "eshwar",
+    myMethod: function() {
+      return "gajanan"
+  }
+  }
 
   console.log(a);
   console.log(a.myMethod());
   console.log(a["name"]);
+
+
+  //Four Ways to Create Objects in JavaScript
+//first  Object Literals
+
+  var b = {
+    name:"eshwar",
+    age:29,
+    content: function(){
+      return "bad person"
+    }
+  }
+  b.bestfriend = "gajju";
+  b["summary"] = "good"
+  console.log(b);
+  var d = {};
+  d.name ="gajanan"
+  d.age=28
+  d["kam"]="good";
+  console.log(d);
+
+
+
+// second New Operator or Constructor
+
+function Car(model, color) {
+    this.model = model;
+    this.color = color;
+}
+
+function EmployeeData(name, id) {
+
+  // var a = 10;
+  // var b = 20;
+  // console.log(a+b);
+
+   console.log(this);
+    this.n = name;
+    this.eid = id;
+}
+
+var c1 = new Car('BMW', 'red');
+
+var empdata = new EmployeeData("gajanan", "1");
+
+console.log(empdata);
+
+console.log(c1);;
 
   </script>
